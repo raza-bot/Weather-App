@@ -1,5 +1,5 @@
 
-console.log("client side js file is loaded")
+//console.log("client side js file is loaded")
 
 //browwser api: fetch: - fetch the data from a page, converted to json and display it in console. 
 // fetch('http://puzzle.mead.io/puzzle').then((response)=> {
