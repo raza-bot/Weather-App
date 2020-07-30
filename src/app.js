@@ -138,3 +138,4 @@ app.listen(port, ()=> {
 
 //last change is to go to public folder/js/app.js (client side js) and change the fetch url (fetch('/weather?address=' + location))
 
+//now we need to push it to heroku web server: git push heroku master
