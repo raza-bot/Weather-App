@@ -5,6 +5,7 @@ const forecast = require('./utils/forecast')
 const hbs = require('hbs'); 
 
 const app = express(); //create web application. 
+const port = process.env.PORT || 3000
 
 //define path for express config
 const publicDir = path.join(__dirname, '../public')
@@ -96,8 +97,8 @@ app.get('*', (req, res)=> {
     error: "Page not found"
   })
 })
-app.listen(3000, ()=> {
-  console.log('Server is up on port 3000');
+app.listen(port, ()=> {
+  console.log('Server is up on port:' + port);
 })
 
 
@@ -128,7 +129,12 @@ app.listen(3000, ()=> {
 
 
 
-//app.com
-//app.com/help
-//app.com/about
+
+//heroku is the deploymnet production. we must install heroku cli tool to manage the heroku from terminal: npm install -g heroku. then we need to setup snf associate ssh key for secure communication: heroku keys:add. Now we need to create heroku account: heroku create ghulam-weather-application (this will create new application on heroku server and spit two urls: first is the url the web url and second is git url )
+
+//now we need to tell the heroku where to start the app. in our package.json file, in script object, write "scripts": { "start": "node src/app.js"}. Note: we can locally run our application too using scripts: npm run start. 
+
+//Now we need to bring changes to our app.js. Now our app is not listening to our local '3000' port. We need to create a const port = process.env.PORT || 3000 'heroku sets up the environment variable'. Now use it in app.listen(port)
+
+//last change is to go to public folder/js/app.js (client side js) and change the fetch url (fetch('/weather?address=' + location))
 
